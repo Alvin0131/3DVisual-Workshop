@@ -26,11 +26,11 @@
             vec4 texColor = texture2D(videoTexture, uv);
             vColor = texColor.rgb;
 
-            float depthScale = 50.0; // Adjust for desired depth effect
+            float depthScale = 50.0;
             vec3 newPosition = position + (vColor - vec3(0.5, 0.5, 0.5)) * depthScale * vec3(1.0);
 
             gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
-            gl_PointSize = 2.0; // Adjust point size as needed
+            gl_PointSize = 2.0; 
         }
     </script>
 
@@ -97,9 +97,9 @@
 
         // Create video texture
         const video = document.createElement('video');
-        video.src = 'video.mp4'; // Replace with your video path
-        video.muted = true; // Mute the video
-    	video.play(); // Start playing the video
+        video.src = 'video.mp4'; 
+        video.muted = true; 
+    	video.play(); 
 		
 		video.onloadeddata = function() {
 			const videoTexture = new THREE.VideoTexture(video);
@@ -145,8 +145,8 @@
 			scene.add(pointCloud);
 
 		
-			const videoPlaneHeight = range; // Or use a specific value that fits your scene
-        const videoPlanePosY = -(range / 2 + videoPlaneHeight / 2); // Adjust this value as needed
+			const videoPlaneHeight = range; 
+        const videoPlanePosY = -(range / 2 + videoPlaneHeight / 2); 
 
         // Create a plane to display the video
         
